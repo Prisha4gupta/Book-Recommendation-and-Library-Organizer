@@ -1,0 +1,404 @@
+body {
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(135deg, #1a1a1a, #2c3e50);
+    color: #f4f4f4;
+    min-height: 100vh;
+    transition: background 0.5s ease;
+    animation: gradientAnimation 10s ease infinite;
+}
+
+@keyframes gradientAnimation {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+
+header {
+    background: rgba(0, 0, 0, 0.7);
+    color: #fff;
+    text-align: center;
+    padding: 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+}
+
+header h1 {
+    margin: 0;
+    font-size: 2.5rem;
+}
+
+
+nav ul {
+    padding: 0;
+    list-style: none;
+    display: flex;
+    justify-content: center;
+}
+
+nav li {
+    margin: 0 15px;
+}
+
+nav a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 1.1rem;
+    transition: color 0.3s ease;
+}
+
+nav a:hover {
+    color: #77aaff;
+}
+
+
+section {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 20px;
+    margin: 20px;
+    border-radius: 10px;
+    backdrop-filter: blur(10px);
+}
+
+
+#book-list, #recommendation-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 20px;
+}
+
+.book-item {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    transition: transform 0.3s ease;
+}
+
+.book-item:hover {
+    transform: translateY(-5px);
+}
+
+
+#add-book-fab {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: linear-gradient(135deg, #007bff, #0056b3);
+    color: white;
+    border: none;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    font-size: 24px;
+    cursor: pointer;
+    transition: 0.3s ease-in-out;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    animation: pulseGlow 2s infinite;
+}
+
+
+#add-book-fab:hover {
+    background: linear-gradient(135deg, #0056b3, #003f7f);
+    transform: scale(1.1);
+    box-shadow: 0 0 15px rgba(0, 123, 255, 0.8);
+}
+
+
+#add-book-fab:active {
+    transform: scale(0.9);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+
+@keyframes pulseGlow {
+    0% { box-shadow: 0 0 10px rgba(0, 123, 255, 0.6); }
+    50% { box-shadow: 0 0 20px rgba(0, 123, 255, 0.9); }
+    100% { box-shadow: 0 0 10px rgba(0, 123, 255, 0.6); }
+}
+
+
+#dark-mode-toggle {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background: rgba(255, 255, 255, 0.1);
+    border: none;
+    color: #fff;
+    padding: 10px;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+#dark-mode-toggle:hover {
+    background: rgba(255, 255, 255, 0.2);
+}
+.dark-mode {
+    background: #1a1a1a;
+    color: #f4f4f4;
+}
+
+.dark-mode header {
+    background: #111;
+}
+
+.dark-mode .book-item {
+    background: #222;
+}
+
+
+button {
+    padding: 12px 16px;
+    font-size: 16px;
+    font-weight: bold;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.3s ease-in-out;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+}
+
+button:hover {
+    transform: scale(1.05);
+}
+
+
+
+#search-button {
+    background-color: #007bff;
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+    padding: 12px 18px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.3s;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    white-space: nowrap;
+}
+
+#search-button:hover {
+    background-color: #0056b3;
+    transform: scale(1.05);
+}
+
+
+.library-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+    padding: 10px 0;
+    border-bottom: 2px solid #ccc;
+}
+
+.search-container {
+    display: flex;
+    align-items: center;
+    max-width: 600px; 
+    width: 100%;
+    margin: 10px auto;
+    gap: 10px;
+}
+
+#search-genre {
+    flex: 1; 
+    padding: 12px;
+    font-size: 16px;
+    border: 2px solid #ccc;
+    border-radius: 5px;
+    outline: none;
+}
+
+#clear-library {
+    background-color: #007bff;
+    color: white;
+    font-weight: bold;
+    margin-top: 10px;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.3s ease-in-out;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+
+#clear-library:hover {
+    background-color:#0056b3;
+    transform: scale(1.05);
+}
+
+
+#progress-list {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+
+.progress-container {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 15px;
+    border-radius: 10px;
+    position: relative;
+}
+
+.progress-container h3 {
+    margin: 0;
+    font-size: 18px;
+}
+
+
+.progress-bar {
+    width: 100%;
+    background: #333;
+    height: 8px;
+    border-radius: 5px;
+    overflow: hidden;
+    margin-top: 8px;
+}
+
+
+.progress-bar-fill {
+    height: 100%;
+    width: 0%;
+    background: linear-gradient(135deg, #007bff, #0056b3);
+    transition: width 0.5s ease-in-out;
+    border-radius: 5px;
+}
+
+.progress-input {
+    display: flex;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.progress-input input {
+    width: 60px;
+    padding: 5px;
+    font-size: 14px;
+    border: 2px solid #ccc;
+    border-radius: 5px;
+    text-align: center;
+}
+
+.progress-input button {
+    background: #007bff;
+    color: white;
+    border: none;
+    padding: 8px 12px;
+    cursor: pointer;
+    border-radius: 5px;
+    font-weight: bold;
+}
+
+.progress-input button:hover {
+    background: #0056b3;
+}
+
+
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.modal-content {
+    background: #fff;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    width: 90%;
+    max-width: 500px;
+    animation: slideIn 0.3s ease-in-out;
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateY(-50px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+.modal-content h2 {
+    margin: 0 0 20px;
+    font-size: 24px;
+    color: #333;
+}
+
+.close-modal {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    font-size: 24px;
+    color: #777;
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+.close-modal:hover {
+    color: #333;
+}
+
+.input-group {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+.input-group input {
+    flex: 1;
+    padding: 12px;
+    font-size: 16px;
+    border: 2px solid #ddd;
+    border-radius: 8px;
+    outline: none;
+    transition: border-color 0.3s ease;
+}
+
+.input-group input:focus {
+    border-color: #007bff;
+}
+
+.input-group button {
+    padding: 12px 20px;
+    font-size: 8px;
+    font-weight: bold;
+    background: linear-gradient(135deg, #007bff, #0056b3);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: transform 0.3s ease, background 0.3s ease;
+}
+
+.input-group button:hover {
+    background: linear-gradient(135deg, #0056b3, #003f7f);
+    transform: scale(1.05);
+}
+

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book Recommendation and Library Organizer</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+</head>
+<body>
+    <header>
+        <h1><i class="fas fa-book"></i> My Library</h1>
+        <nav>
+            <ul>
+                <li><a href="#library"><i class="fas fa-book-open"></i> Library</a></li>
+                <li><a href="#recommendations"><i class="fas fa-lightbulb"></i> Recommendations</a></li>
+                <li><a href="#progress"><i class="fas fa-chart-line"></i> Reading Progress</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <button id="dark-mode-toggle"><i class="fas fa-moon"></i></button>
+
+    <main>
+        <section id="library">
+            <div class="library-header">
+                <h2>📚 Your Library</h2>
+                <button id="clear-library"><i class="fas fa-trash"></i> Clear All Books</button>
+            </div>
+            <div id="book-list"></div>
+        </section>        
+
+        <section id="recommendations">
+            <h2>🔍 Book Recommendations</h2>
+            <div class="search-container">
+            <input type="text" id="search-genre" placeholder="Enter genre...">
+            <button id="search-button"><i class="fas fa-search"></i> Search</button>
+            </div>
+            <div id="recommendation-list"></div>
+        </section>
+
+        <section id="progress">
+            <h2>📊 Reading Progress</h2>
+            <div id="progress-list"></div>
+        </section>
+    </main>
+
+    <button id="add-book-fab" title="Add a New Book"><i class="fas fa-plus"></i></button>
+    <div class="modal" id="add-book-modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <h2>Add a New Book</h2>
+            <form id="add-book-form">
+                <div class="input-group">
+                    <input type="text" id="book-title" placeholder="Book Title" required>
+                    <input type="text" id="book-author" placeholder="Author" required>
+                    <button type="submit">Add Book</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
